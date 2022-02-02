@@ -18,8 +18,8 @@ module.exports = {
     */
     devtool: isDevelopment ? 'eval-source-map' : 'source-map', 
 
-    /**Mostra qual o arquivo inicial (index.jsx)*/
-    entry: path.resolve(__dirname, 'src', 'index.jsx'),
+    /**Mostra qual o arquivo inicial (index.tsx)*/
+    entry: path.resolve(__dirname, 'src', 'index.tsx'),
     
     /**Serve para dizer qual arquivo será gerado com o webpack, no caso o bundle em dist (o tradutor)*/
     output: {
@@ -29,7 +29,7 @@ module.exports = {
 
     /*Diz que haverá arquivos .js e .jsx. Ambos devem funcionar na aplicação*/
     resolve: {
-        extensions: ['.js', '.jsx']
+        extensions: ['.js', '.jsx', '.ts', '.tsx']
     },
 
     /** 
@@ -63,8 +63,8 @@ module.exports = {
     module: {
         rules: [
             {
-                /**Recebe uma expressão regular para dizer se o arquivo é jsx ou não*/
-                test: /\.jsx$/,
+                /**Recebe uma expressão regular para dizer se o arquivo é jsx ou tsx*/
+                test: /\.(j|t)sx$/,
                 /**Exclui todos os arquivos de node_modules, pois já está pronto para o browser ler*/
                 exclude: /node_modules/,
                 /**
